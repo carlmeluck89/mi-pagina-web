@@ -1,72 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Página Web</title>
+  <meta charset="utf-8" />
+  <title>CompuEnglish | Educación y Cursos Online</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="CompuEnglish — Diseño de cursos y páginas web educativas: metodología, beneficios, herramientas y contacto." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f2f2f2;
+    :root{
+      --bg:#f6f8fb;
+      --white:#ffffff;
+      --muted:#6b7280;
+      --primary:#1d4ed8;
+      --accent:#06b6d4;
+      --card:#fbfdff;
+      --max-width:1100px;
+      --radius:12px;
     }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family:Inter, system-ui, Arial, sans-serif; color:#0f172a; background:var(--bg)}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
 
-    header {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    /* Header */
+    .site-header{background:var(--white); box-shadow:0 6px 18px rgba(15,23,42,0.06); position:sticky; top:0; z-index:60}
+    .nav-container{max-width:var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px;}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700}
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .nav-links a{color:var(--muted); font-weight:600; font-size:15px}
+    .nav-cta{background:var(--primary); color:white; padding:9px 14px; border-radius:10px; font-weight:700}
+
+    /* Hero */
+    .hero{max-width:var(--max-width); margin:28px auto; display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; padding:0 20px}
+    .hero-card{background:linear-gradient(180deg,var(--card),#fff); border-radius:16px; padding:36px; box-shadow:0 18px 40px rgba(2,6,23,0.06)}
+    .hero h1{margin:0 0 12px; font-size:30px; color:var(--primary)}
+    .hero p{margin:0 0 18px; color:var(--muted); font-size:16px}
+    .actions{display:flex; gap:12px; margin-top:14px}
+    .btn{display:inline-block; padding:12px 18px; border-radius:10px; font-weight:700}
+    .btn.primary{background:var(--primary); color:white}
+    .btn.ghost{background:transparent; color:var(--primary); border:1px solid rgba(29,78,216,0.12)}
+
+    .hero-visual{border-radius:16px; overflow:hidden; box-shadow:0 12px 28px rgba(2,6,23,0.06)}
+    .hero-visual img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* Two-column informational sections */
+    .section{max-width:var(--max-width); margin:36px auto; padding:0 20px}
+    .section-grid{display:grid; grid-template-columns:1fr 460px; gap:28px; align-items:start}
+    .section h2{margin:0 0 8px; font-size:24px; color:var(--primary)}
+    .section p.lead{color:var(--muted); margin:0 0 14px}
+
+    /* Cards and features */
+    .cards{display:flex; gap:18px; flex-wrap:wrap; margin-top:12px}
+    .card{background:var(--white); padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.04); flex:1 1 250px}
+    .card h3{margin:0 0 8px; color:#0f172a}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+
+    /* Article-like list (basado en contenidos de estrategia educativa) */
+    .article-list{background:var(--white); padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.04)}
+    .article-list ul{margin:0; padding-left:20px; color:var(--muted)}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:18px}
+    .gallery .item{border-radius:12px; overflow:hidden; background:var(--white); box-shadow:0 12px 30px rgba(2,6,23,0.04)}
+    .gallery .item img{width:100%; height:160px; object-fit:cover}
+
+    /* Contact */
+    .contact-card{background:linear-gradient(180deg,#fff,#fbfdff); border-radius:12px; padding:18px; display:flex; align-items:center; gap:12px; justify-content:space-between; box-shadow:0 12px 30px rgba(2,6,23,0.04)}
+    .contact-left{display:flex; gap:12px; align-items:center}
+    .contact-left .phone{font-weight:700; color:var(--primary); font-size:18px}
+    .contact-right{display:flex; gap:10px; align-items:center}
+
+    footer{margin-top:40px; padding:28px 20px; background:#0b1220; color:#cbd5e1}
+    footer .inner{max-width:var(--max-width); margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:12px}
+
+    .whatsapp-float{position:fixed; right:20px; bottom:20px; width:56px; height:56px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; box-shadow:0 10px 30px rgba(2,6,23,0.12); z-index:80}
+
+    @media (max-width:980px){
+      .hero, .section-grid{grid-template-columns:1fr; padding:0 20px}
+      .nav-links{display:none}
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .galeria img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #222;
-      color: #aaa;
-      font-size: 14px;
+    @media (max-width:520px){
+      .hero{margin:18px auto}
+      .hero-card{padding:20px}
     }
   </style>
 </head>
 
 <body>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">CE</div>
+        <div>
+          <div style="font-weight:700">CompuEnglish</div>
+          <div style="font-size:12px;color:var(--muted)">Inglés + Tecnología</div>
+        </div>
+      </div>
 
-  <header>
-    <h1>Bienvenido a mi página web</h1>
-    <p>Galería de fotos</p>
+      <nav class="nav-links" role="navigation" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="nav-cta" href="#contacto">Inscribirme</a>
+    </div>
   </header>
 
-  <section class="galeria">
-    <img src="fotos/foto1.jpg" alt="Foto 1">
-    <img src="fotos/foto2.jpg" alt="Foto 2">
-    <img src="fotos/foto3.jpg" alt="Foto 3">
-  </section>
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-card">
+        <h1>Tu plataforma educativa práctica y rentable</h1>
+        <p class="lead">Diseñamos cursos online y páginas educativas que combinan metodología probada, contenidos interactivos y herramientas para monetizar y escalar tu oferta formativa.</p>
 
+        <div class="actions">
+          <a class="btn primary" id="wa-cta" href="https://wa.me/51916347155" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+          <a class="btn ghost" href="#beneficios">Saber más</a>
+        </div>
+
+        <div style="margin-top:18px; font-size:14px; color:var(--muted)">
+          <strong>Próximo inicio:</strong> 01 Feb 2026 — Plazas limitadas
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Reemplaza esta imagen por images/hero.jpg -->
+        <img src="images/hero-placeholder.jpg" alt="Aula CompuEnglish">
+      </div>
+    </section>
+
+    <!-- Beneficios y por qué tener una web educativa -->
+    <section class="section" id="beneficios">
+      <div class="section-grid">
+        <div>
+          <h2>Por qué una página educativa bien diseñada importa</h2>
+          <p class="lead">Una web optimizada para cursos y estudiantes aumenta la confianza, facilita inscripciones y permite monetizar clases con herramientas actuales.</p>
+
+          <div class="cards" style="margin-top:14px">
+            <div class="card">
+              <h3>Alcance y visibilidad</h3>
+              <p>Publica cursos y contenidos para llegar a estudiantes locales y globales, ampliando tu público sin depender de terceros.</p>
+            </div>
+            <div class="card">
+              <h3>Metodología aplicada</h3>
+              <p>Integra lecciones, actividades y evaluaciones que fomenten el aprendizaje continuo y práctico.</p>
+            </div>
+            <div class="card">
+              <h3>Modelos de monetización</h3>
+              <p>Vende cursos, suscripciones, membresías o clases en vivo, y aprovecha ventas recurrentes.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="article-list">
+            <h3>Elementos clave</h3>
+            <ul>
+              <li>Plataforma de cursos (LMS) o integración con herramientas (Teachable, Gumroad, Moodle, etc.).</li>
+              <li>Proceso de inscripción simple y pago seguro.</li>
+              <li>Contenido multimedia: videos, ejercicios, descargas y foros.</li>
+              <li>Seguimiento del progreso y certificaciones.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Cursos y estructura -->
+    <section class="section" id="cursos">
+      <h2>Cómo estructuramos los cursos</h2>
+      <p class="lead" style="text-align:center">Cada curso se diseña por módulos, con objetivos claros, actividades prácticas y evaluaciones cortas para medir avances.</p>
+
+      <div class="cards" style="margin-top:18px">
+        <div class="card">
+          <h3>Módulos cortos</h3>
+          <p>Lecciones de 5–15 minutos para mantener la atención y facilitar el avance diario.</p>
+        </div>
+        <div class="card">
+          <h3>Actividades reales</h3>
+          <p>Proyectos aplicados que refuerzan el uso del inglés y las competencias tecnológicas.</p>
+        </div>
+        <div class="card">
+          <h3>Evaluación y certificación</h3>
+          <p>Pequeñas pruebas y certificados digitales que avalan el aprendizaje.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artículo con recomendaciones prácticas (resumen original) -->
+    <section class="section">
+      <h2>Guía rápida para lanzar tu sitio educativo</h2>
+      <div class="article-list" style="margin-top:12px">
+        <ul>
+          <li>Define tu público objetivo y el problema que resuelves.</li>
+          <li>Organiza el contenido en módulos y objetivos de aprendizaje.</li>
+          <li>Elige una plataforma de entrega (LMS o página con pasarelas de pago).</li>
+          <li>Prepara material multimedia optimizado (videos, PDFs, quizzes).</li>
+          <li>Pensar en estrategias de captación: SEO, redes, alianzas y WhatsApp.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Galería / Fotos -->
+    <section class="section" id="fotos">
+      <h2>Galería</h2>
+      <p class="lead" style="text-align:center">Imágenes de nuestras clases, proyectos y actividades prácticas.</p>
+
+      <div class="gallery" aria-label="Galería de fotos">
+        <!-- Reemplaza por images/foto1.jpg ... -->
+        <div class="item"><img src="images/foto1.jpg" alt="Actividad en aula"></div>
+        <div class="item"><img src="images/foto2.jpg" alt="Proyecto de estudiantes"></div>
+        <div class="item"><img src="images/foto3.jpg" alt="Clase práctica"></div>
+        <div class="item"><img src="images/foto4.jpg" alt="Evento educativo"></div>
+      </div>
+    </section>
+
+    <!-- Contacto y CTA -->
+    <section class="section" id="contacto">
+      <h2>Contacto y asesoría</h2>
+
+      <div class="contact-card" role="region" aria-label="Contacto principal">
+        <div class="contact-left">
+          <div style="width:52px; height:52px; border-radius:10px; background:linear-gradient(135deg,var(--primary),var(--accent)); display:flex; align-items:center; justify-content:center; color:white; font-weight:700;">CE</div>
+          <div>
+            <div style="font-size:13px; color:var(--muted)">Habla con nosotros</div>
+            <div class="phone" id="display-phone">+51 916 347 155</div>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <a id="contact-wa" class="btn primary" href="https://wa.me/51916347155" target="_blank" rel="noopener noreferrer">Enviar WhatsApp</a>
+          <a class="btn ghost" href="mailto:info@compuenglish.com">Enviar correo</a>
+        </div>
+      </div>
+
+      <p style="text-align:center; color:var(--muted); margin-top:12px; font-size:14px">¿Quieres que tu sitio sea como el ejemplo? Ofrecemos asesoría para estructura, contenido y herramientas técnicas.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    © 2026 - Mi página web
+    <div class="inner">
+      <div>© 2026 CompuEnglish | Perú</div>
+      <div style="font-size:14px; color:#94a3b8">Plantilla inspirada en diseños de referencia. Sustituye textos e imágenes por los tuyos.</div>
+    </div>
   </footer>
 
+  <!-- Floating WhatsApp -->
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/51916347155" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    💬
+  </a>
+
+  <script>
+    // Si quieres cambiar el número desde la URL: index.html#wa=51912345678
+    (function(){
+      function getHashParam(name){
+        if(!location.hash) return null;
+        const params = new URLSearchParams(location.hash.replace('#',''));
+        return params.get(name);
+      }
+      const wa = getHashParam('wa');
+      if(wa){
+        const normalized = wa.replace(/\D/g,'');
+        const url = 'https://wa.me/' + normalized;
+        const display = document.getElementById('display-phone');
+        if(display) display.textContent = '+' + normalized.replace(/^(\d{2})(\d+)/, '$1 $2');
+        const els = [document.getElementById('wa-cta'), document.getElementById('contact-wa'), document.getElementById('whatsapp-float')];
+        els.forEach(el => { if(el) el.href = url; });
+      }
+    })();
+
+    // Lightbox simple para la galería
+    document.addEventListener('click', function(e){
+      const img = e.target.closest('.gallery .item img');
+      if(!img) return;
+      const overlay = document.createElement('div');
+      overlay.style.position='fixed';
+      overlay.style.left=0; overlay.style.top=0; overlay.style.right=0; overlay.style.bottom=0;
+      overlay.style.background='rgba(2,6,23,0.8)'; overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center';
+      overlay.style.zIndex=120;
+      const large = document.createElement('img');
+      large.src = img.src; large.alt = img.alt || '';
+      large.style.maxWidth='95%'; large.style.maxHeight='95%'; large.style.borderRadius='8px'; large.style.boxShadow='0 20px 60px rgba(2,6,23,0.6)';
+      overlay.appendChild(large);
+      overlay.addEventListener('click', ()=> overlay.remove());
+      document.body.appendChild(overlay);
+    });
+  </script>
 </body>
 </html>
