@@ -2,27 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Metodología | Inglés y Computación</title>
+    <title>CompuEnglish | Educación</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f7fa;
+            background-color: #f4f6f8;
             color: #333;
         }
 
-        /* ENCABEZADO */
+        /* HERO */
         .hero {
             background: linear-gradient(135deg, #2b7cff, #00b4d8);
             color: white;
+            padding: 90px 20px;
             text-align: center;
-            padding: 80px 20px;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 44px;
             margin-bottom: 15px;
         }
 
@@ -42,8 +42,8 @@
         .section h2 {
             text-align: center;
             font-size: 32px;
-            margin-bottom: 20px;
             color: #2b7cff;
+            margin-bottom: 20px;
         }
 
         .section p {
@@ -66,7 +66,7 @@
             flex: 1;
             min-width: 260px;
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 14px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             text-align: center;
         }
@@ -76,20 +76,41 @@
             margin-bottom: 10px;
         }
 
-        /* PUBLICO */
-        .audience {
-            background-color: #ffffff;
-            padding: 60px 20px;
+        /* IMAGEN */
+        .img-center {
+            display: block;
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto;
+            border-radius: 16px;
         }
 
+        /* FOOTER */
         footer {
-            background-color: #2b7cff;
+            background: #2b7cff;
             color: white;
             text-align: center;
             padding: 20px;
         }
 
-        /* RESPONSIVE */
+        /* WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 32px;
+            line-height: 60px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 32px;
@@ -99,81 +120,54 @@
 </head>
 <body>
 
-<!-- ENCABEZADO -->
+<!-- HERO -->
 <section class="hero">
-    <h1>Nuestra Metodología</h1>
+    <h1>CompuEnglish</h1>
     <p>
-        Enseñamos inglés y computación de manera práctica, sencilla y progresiva,
-        adaptada a cada edad y nivel.
+        Enseñanza de inglés y computación con una metodología práctica,
+        moderna y adaptada para niños, adolescentes y adultos.
     </p>
 </section>
 
 <!-- METODOLOGIA -->
 <section class="section">
-    <h2>¿Cómo Aprendemos?</h2>
+    <h2>Nuestra Metodología</h2>
     <p>
-        Nuestra metodología combina el aprendizaje del idioma inglés con el uso
-        de la tecnología, fomentando la comprensión, la práctica constante y la
-        aplicación real de los conocimientos.
+        Combinamos el aprendizaje del idioma inglés con la tecnología,
+        enfocándonos en la práctica real y el desarrollo de habilidades útiles.
     </p>
+
+    <img src="images/metodologia.jpg" alt="Metodología educativa" class="img-center">
 </section>
 
-<!-- BLOQUES -->
+<!-- PROCESO -->
 <section class="section">
+    <h2>Cómo Aprendemos</h2>
+
     <div class="blocks">
         <div class="block">
             <h3>📘 Aprender</h3>
-            <p>
-                Introducimos conceptos claros de inglés y computación con ejemplos
-                simples y explicaciones fáciles de entender.
-            </p>
+            <p>Conceptos claros, simples y bien explicados.</p>
         </div>
 
         <div class="block">
             <h3>🧠 Practicar</h3>
-            <p>
-                Reforzamos el aprendizaje con ejercicios, actividades interactivas
-                y práctica guiada.
-            </p>
+            <p>Ejercicios, actividades y refuerzo constante.</p>
         </div>
 
         <div class="block">
             <h3>💻 Aplicar</h3>
-            <p>
-                Aplicamos lo aprendido en situaciones reales, usando tecnología,
-                comunicación y proyectos prácticos.
-            </p>
+            <p>Uso del inglés y la computación en situaciones reales.</p>
         </div>
     </div>
 </section>
 
 <!-- PUBLICO -->
-<section class="audience">
-    <div class="section">
-        <h2>¿A Quién Va Dirigido?</h2>
-        <div class="blocks">
-            <div class="block">
-                <h3>👧 Niños</h3>
-                <p>Aprendizaje visual, dinámico y divertido.</p>
-            </div>
+<section class="section">
+    <h2>A Quién Va Dirigido</h2>
 
-            <div class="block">
-                <h3>🧑 Adolescentes</h3>
-                <p>Inglés y computación para estudio y futuro laboral.</p>
-            </div>
+    <div class="blocks">
+        <div class="block">
+            <h3>👧 Niños</h3>
+            <p>Aprendizaje visual, dinámico y d
 
-            <div class="block">
-                <h3>👨 Adultos</h3>
-                <p>Inglés práctico y tecnología para la vida diaria y el trabajo.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 Aprende Inglés y Computación</p>
-</footer>
-
-</body>
-</html>
