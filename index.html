@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>CompuEnglish | Educación y Cursos Online</title>
+  <title>CompuEnglish | Educación y Cursos</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="CompuEnglish — Diseño de cursos y páginas web educativas: metodología, beneficios, herramientas y contacto." />
+  <meta name="description" content="CompuEnglish — Clases de inglés y computación para niños, jóvenes y adultos. Metodología práctica y proyectos reales." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -27,14 +27,17 @@
     .site-header{background:var(--white); box-shadow:0 6px 18px rgba(15,23,42,0.06); position:sticky; top:0; z-index:60}
     .nav-container{max-width:var(--max-width); margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:12px 20px;}
     .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700}
+    .logo-img{width:64px; height:64px; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:#fff;}
+    .brand h1{margin:0; font-size:18px; color:var(--primary)}
     .nav-links{display:flex; gap:18px; align-items:center}
     .nav-links a{color:var(--muted); font-weight:600; font-size:15px}
     .nav-cta{background:var(--primary); color:white; padding:9px 14px; border-radius:10px; font-weight:700}
 
     /* Hero */
-    .hero{max-width:var(--max-width); margin:28px auto; display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; padding:0 20px}
-    .hero-card{background:linear-gradient(180deg,var(--card),#fff); border-radius:16px; padding:36px; box-shadow:0 18px 40px rgba(2,6,23,0.06)}
+    .hero{max-width:var(--max-width); margin:28px auto; display:grid; grid-template-columns:1fr 460px; gap:28px; align-items:center; padding:0 20px}
+    .hero-card{background:linear-gradient(180deg,var(--card),#fff); border-radius:16px; padding:32px; box-shadow:0 18px 40px rgba(2,6,23,0.06); transform:translateY(0); transition:transform .45s ease,opacity .45s ease}
+    .reveal{opacity:0; transform: translateY(18px); transition:transform .5s ease,opacity .5s ease}
+    .reveal.visible{opacity:1; transform: translateY(0);}
     .hero h1{margin:0 0 12px; font-size:30px; color:var(--primary)}
     .hero p{margin:0 0 18px; color:var(--muted); font-size:16px}
     .actions{display:flex; gap:12px; margin-top:14px}
@@ -42,29 +45,32 @@
     .btn.primary{background:var(--primary); color:white}
     .btn.ghost{background:transparent; color:var(--primary); border:1px solid rgba(29,78,216,0.12)}
 
-    .hero-visual{border-radius:16px; overflow:hidden; box-shadow:0 12px 28px rgba(2,6,23,0.06)}
+    .hero-visual{border-radius:16px; overflow:hidden; box-shadow:0 12px 28px rgba(2,6,23,0.06); height:360px; background:#eaeef9; display:flex; align-items:center; justify-content:center}
     .hero-visual img{width:100%; height:100%; object-fit:cover; display:block}
 
-    /* Two-column informational sections */
+    /* Sections */
     .section{max-width:var(--max-width); margin:36px auto; padding:0 20px}
-    .section-grid{display:grid; grid-template-columns:1fr 460px; gap:28px; align-items:start}
     .section h2{margin:0 0 8px; font-size:24px; color:var(--primary)}
     .section p.lead{color:var(--muted); margin:0 0 14px}
 
-    /* Cards and features */
     .cards{display:flex; gap:18px; flex-wrap:wrap; margin-top:12px}
     .card{background:var(--white); padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.04); flex:1 1 250px}
     .card h3{margin:0 0 8px; color:#0f172a}
     .card p{margin:0; color:var(--muted); font-size:14px}
 
-    /* Article-like list (basado en contenidos de estrategia educativa) */
-    .article-list{background:var(--white); padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.04)}
-    .article-list ul{margin:0; padding-left:20px; color:var(--muted)}
-
-    /* Gallery */
+    /* Gallery and strategic image placements */
     .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:18px}
-    .gallery .item{border-radius:12px; overflow:hidden; background:var(--white); box-shadow:0 12px 30px rgba(2,6,23,0.04)}
-    .gallery .item img{width:100%; height:160px; object-fit:cover}
+    .gallery .item{border-radius:12px; overflow:hidden; background:var(--white); box-shadow:0 12px 30px rgba(2,6,23,0.04); min-height:140px; position:relative}
+    .gallery .item img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* Emphasis block combining teacher photo */
+    .emphasis{display:flex; gap:20px; align-items:center; background:linear-gradient(180deg,#fff,#fbfdff); padding:18px; border-radius:12px; box-shadow:0 12px 30px rgba(2,6,23,0.04); margin-top:18px}
+    .emphasis .em-img{width:48%; border-radius:10px; overflow:hidden}
+    .emphasis .em-text{width:52%}
+
+    /* Controls / Editor bar */
+    .editor-bar{max-width:var(--max-width); margin:14px auto; padding:0 20px; display:flex; gap:8px; align-items:center; justify-content:flex-end}
+    .editor-bar .small{padding:8px 10px; font-size:13px}
 
     /* Contact */
     .contact-card{background:linear-gradient(180deg,#fff,#fbfdff); border-radius:12px; padding:18px; display:flex; align-items:center; gap:12px; justify-content:space-between; box-shadow:0 12px 30px rgba(2,6,23,0.04)}
@@ -77,32 +83,41 @@
 
     .whatsapp-float{position:fixed; right:20px; bottom:20px; width:56px; height:56px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; box-shadow:0 10px 30px rgba(2,6,23,0.12); z-index:80}
 
+    /* Hidden file inputs (for image replacement) */
+    input[type="file"]{display:none}
+
     @media (max-width:980px){
-      .hero, .section-grid{grid-template-columns:1fr; padding:0 20px}
+      .hero{grid-template-columns:1fr; padding:0 20px}
+      .hero-visual{order:-1}
       .nav-links{display:none}
+      .emphasis{flex-direction:column}
+      .emphasis .em-img, .emphasis .em-text{width:100%}
     }
     @media (max-width:520px){
       .hero{margin:18px auto}
       .hero-card{padding:20px}
+      .hero-visual{height:220px}
     }
   </style>
 </head>
-
 <body>
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="nav-container">
       <div class="brand">
-        <div class="logo" aria-hidden="true">CE</div>
+        <div class="logo-img" aria-hidden="true" id="logo-container">
+          <!-- Default generated SVG logo (will be replaced if user uploads one) -->
+          <img id="logo-img" src="" alt="CompuEnglish logo">
+        </div>
         <div>
-          <div style="font-weight:700">CompuEnglish</div>
-          <div style="font-size:12px;color:var(--muted)">Inglés + Tecnología</div>
+          <h1>CompuEnglish</h1>
+          <div style="font-size:12px;color:var(--muted)">Inglés + Computación</div>
         </div>
       </div>
 
       <nav class="nav-links" role="navigation" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
-        <a href="#beneficios">Beneficios</a>
+        <a href="#metodologia">Metodología</a>
         <a href="#cursos">Cursos</a>
         <a href="#fotos">Fotos</a>
         <a href="#contacto">Contacto</a>
@@ -112,119 +127,107 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- Editor bar: reemplazar imágenes / exportar -->
+  <div class="editor-bar" aria-hidden="false">
+    <label for="file-logo" class="btn small">Subir logo</label>
+    <input id="file-logo" type="file" accept="image/*">
+    <label for="file-hero" class="btn small">Subir imagen hero</label>
+    <input id="file-hero" type="file" accept="image/*">
+    <label for="file-photo2" class="btn small">Subir foto aula</label>
+    <input id="file-photo2" type="file" accept="image/*">
+    <label for="file-photo3" class="btn small">Subir foto profesor</label>
+    <input id="file-photo3" type="file" accept="image/*">
+    <button id="export-btn" class="btn small">Exportar index.html</button>
+  </div>
+
   <main>
+    <!-- HERO: strategic placement of aula image -->
     <section class="hero" id="inicio">
-      <div class="hero-card">
-        <h1>Tu plataforma educativa práctica y rentable</h1>
-        <p class="lead">Diseñamos cursos online y páginas educativas que combinan metodología probada, contenidos interactivos y herramientas para monetizar y escalar tu oferta formativa.</p>
+      <div class="hero-card reveal" data-reveal>
+        <h1>Aprende inglés y computación con metodología práctica</h1>
+        <p class="lead">Clases dinámicas para niños, jóvenes y adultos. Proyectos, práctica y resultados reales.</p>
 
         <div class="actions">
           <a class="btn primary" id="wa-cta" href="https://wa.me/51916347155" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
-          <a class="btn ghost" href="#beneficios">Saber más</a>
+          <a class="btn ghost" href="#cursos">Ver cursos</a>
         </div>
 
-        <div style="margin-top:18px; font-size:14px; color:var(--muted)">
-          <strong>Próximo inicio:</strong> 01 Feb 2026 — Plazas limitadas
+        <!-- Emphasis: teacher photo placed as supporting proof -->
+        <div class="emphasis" aria-hidden="false">
+          <div class="em-img">
+            <img id="photo-3" src="" alt="Profesor enseñando en aula">
+          </div>
+          <div class="em-text">
+            <h3>Docentes capacitados y enfoque práctico</h3>
+            <p style="color:var(--muted)">Nuestros profesores guían con metodología comunicativa y actividades que motivan al estudiante a usar el inglés en contextos reales.</p>
+            <p style="margin-top:10px;"><strong>Clases presenciales y online</strong> — grupos reducidos y seguimiento personalizado.</p>
+          </div>
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <!-- Reemplaza esta imagen por images/hero.jpg -->
-        <img src="images/hero-placeholder.jpg" alt="Aula CompuEnglish">
+      <div class="hero-visual reveal" data-reveal aria-hidden="true">
+        <!-- aula image -->
+        <img id="hero-img" src="" alt="Estudiantes trabajando en computadoras">
       </div>
     </section>
 
-    <!-- Beneficios y por qué tener una web educativa -->
-    <section class="section" id="beneficios">
-      <div class="section-grid">
-        <div>
-          <h2>Por qué una página educativa bien diseñada importa</h2>
-          <p class="lead">Una web optimizada para cursos y estudiantes aumenta la confianza, facilita inscripciones y permite monetizar clases con herramientas actuales.</p>
+    <!-- Metodología -->
+    <section class="section reveal" data-reveal id="metodologia">
+      <h2>Nuestra metodología</h2>
+      <p class="lead">Combinamos inglés con proyectos de tecnología para que el aprendizaje sea útil, motivador y aplicable.</p>
 
-          <div class="cards" style="margin-top:14px">
-            <div class="card">
-              <h3>Alcance y visibilidad</h3>
-              <p>Publica cursos y contenidos para llegar a estudiantes locales y globales, ampliando tu público sin depender de terceros.</p>
-            </div>
-            <div class="card">
-              <h3>Metodología aplicada</h3>
-              <p>Integra lecciones, actividades y evaluaciones que fomenten el aprendizaje continuo y práctico.</p>
-            </div>
-            <div class="card">
-              <h3>Modelos de monetización</h3>
-              <p>Vende cursos, suscripciones, membresías o clases en vivo, y aprovecha ventas recurrentes.</p>
-            </div>
-          </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Aprender</h3>
+          <p>Explicaciones claras y actividades guiadas para formar bases sólidas.</p>
         </div>
-
-        <aside>
-          <div class="article-list">
-            <h3>Elementos clave</h3>
-            <ul>
-              <li>Plataforma de cursos (LMS) o integración con herramientas (Teachable, Gumroad, Moodle, etc.).</li>
-              <li>Proceso de inscripción simple y pago seguro.</li>
-              <li>Contenido multimedia: videos, ejercicios, descargas y foros.</li>
-              <li>Seguimiento del progreso y certificaciones.</li>
-            </ul>
-          </div>
-        </aside>
+        <div class="card">
+          <h3>Practicar</h3>
+          <p>Ejercicios, proyectos y tutorías para reforzar el uso real del idioma.</p>
+        </div>
+        <div class="card">
+          <h3>Aplicar</h3>
+          <p>Proyectos integradores donde se usan herramientas digitales y inglés.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Cursos y estructura -->
-    <section class="section" id="cursos">
-      <h2>Cómo estructuramos los cursos</h2>
-      <p class="lead" style="text-align:center">Cada curso se diseña por módulos, con objetivos claros, actividades prácticas y evaluaciones cortas para medir avances.</p>
+    <!-- Cursos / Público -->
+    <section class="section reveal" data-reveal id="cursos">
+      <h2>¿A quién va dirigido?</h2>
+      <p class="lead" style="text-align:center">Programas para todas las edades con itinerarios progresivos.</p>
 
       <div class="cards" style="margin-top:18px">
         <div class="card">
-          <h3>Módulos cortos</h3>
-          <p>Lecciones de 5–15 minutos para mantener la atención y facilitar el avance diario.</p>
+          <h3>Niños</h3>
+          <p>Actividades lúdicas y motivadoras que fortalecen comunicación temprana.</p>
         </div>
         <div class="card">
-          <h3>Actividades reales</h3>
-          <p>Proyectos aplicados que refuerzan el uso del inglés y las competencias tecnológicas.</p>
+          <h3>Jóvenes</h3>
+          <p>Preparación académica y habilidades para el mundo tecnológico.</p>
         </div>
         <div class="card">
-          <h3>Evaluación y certificación</h3>
-          <p>Pequeñas pruebas y certificados digitales que avalan el aprendizaje.</p>
+          <h3>Adultos</h3>
+          <p>Inglés funcional y herramientas digitales para el trabajo y la vida diaria.</p>
         </div>
       </div>
     </section>
 
-    <!-- Artículo con recomendaciones prácticas (resumen original) -->
-    <section class="section">
-      <h2>Guía rápida para lanzar tu sitio educativo</h2>
-      <div class="article-list" style="margin-top:12px">
-        <ul>
-          <li>Define tu público objetivo y el problema que resuelves.</li>
-          <li>Organiza el contenido en módulos y objetivos de aprendizaje.</li>
-          <li>Elige una plataforma de entrega (LMS o página con pasarelas de pago).</li>
-          <li>Prepara material multimedia optimizado (videos, PDFs, quizzes).</li>
-          <li>Pensar en estrategias de captación: SEO, redes, alianzas y WhatsApp.</li>
-        </ul>
+    <!-- Gallery: show aula & profesor & logo -->
+    <section class="section reveal" data-reveal id="fotos">
+      <h2>Fotos</h2>
+      <p class="lead" style="text-align:center">Aulas, actividades y nuestros docentes en acción.</p>
+
+      <div class="gallery" aria-label="Galería de fotos" id="gallery">
+        <div class="item"><img id="g-photo1" src="" alt="Estudiantes en laboratorio de computación"></div>
+        <div class="item"><img id="g-photo2" src="" alt="Profesor explicando en pizarra"></div>
+        <div class="item"><img id="g-photo3" src="" alt="Logo CompuEnglish"></div>
       </div>
     </section>
 
-    <!-- Galería / Fotos -->
-    <section class="section" id="fotos">
-      <h2>Galería</h2>
-      <p class="lead" style="text-align:center">Imágenes de nuestras clases, proyectos y actividades prácticas.</p>
-
-      <div class="gallery" aria-label="Galería de fotos">
-        <!-- Reemplaza por images/foto1.jpg ... -->
-        <div class="item"><img src="images/foto1.jpg" alt="Actividad en aula"></div>
-        <div class="item"><img src="images/foto2.jpg" alt="Proyecto de estudiantes"></div>
-        <div class="item"><img src="images/foto3.jpg" alt="Clase práctica"></div>
-        <div class="item"><img src="images/foto4.jpg" alt="Evento educativo"></div>
-      </div>
-    </section>
-
-    <!-- Contacto y CTA -->
-    <section class="section" id="contacto">
-      <h2>Contacto y asesoría</h2>
-
+    <!-- Contact -->
+    <section class="section reveal" data-reveal id="contacto">
+      <h2>Contacto</h2>
       <div class="contact-card" role="region" aria-label="Contacto principal">
         <div class="contact-left">
           <div style="width:52px; height:52px; border-radius:10px; background:linear-gradient(135deg,var(--primary),var(--accent)); display:flex; align-items:center; justify-content:center; color:white; font-weight:700;">CE</div>
@@ -240,15 +243,14 @@
         </div>
       </div>
 
-      <p style="text-align:center; color:var(--muted); margin-top:12px; font-size:14px">¿Quieres que tu sitio sea como el ejemplo? Ofrecemos asesoría para estructura, contenido y herramientas técnicas.</p>
+      <p style="text-align:center; color:var(--muted); margin-top:12px; font-size:14px">También atendemos por WhatsApp para inscripciones y dudas.</p>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="inner">
       <div>© 2026 CompuEnglish | Perú</div>
-      <div style="font-size:14px; color:#94a3b8">Plantilla inspirada en diseños de referencia. Sustituye textos e imágenes por los tuyos.</div>
+      <div style="font-size:14px; color:#94a3b8">Plantilla generada — reemplaza contenidos e imágenes por los tuyos.</div>
     </div>
   </footer>
 
@@ -258,7 +260,233 @@
   </a>
 
   <script>
-    // Si quieres cambiar el número desde la URL: index.html#wa=51912345678
+    /*****************************************************************************
+     * Dinámica y manejo de imágenes en navegador (sin servidor)
+     *
+     * - Genera placeholders SVG por defecto.
+     * - Permite subir logo, hero y fotos desde el navegador (reemplazan placeholders).
+     * - Guarda previsualizaciones en localStorage para que persistan en el mismo navegador.
+     * - Lightbox para la galería.
+     * - Reveal on scroll con IntersectionObserver.
+     * - Botón "Exportar index.html" descarga el HTML final con las imágenes actualmente visibles
+     *   (incrusta como data URLs cuando proceda).
+     *****************************************************************************/
+
+    // --- Placeholders SVG (generados programáticamente) ---
+    function svgDataUrl(width = 1600, height = 900, text = 'Placeholder', bg = '#e9eef6', fg = '#6b7280', accent = '#1d4ed8') {
+      const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox='0 0 ${width} ${height}'>
+        <defs>
+          <linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='${accent}' stop-opacity='0.14'/><stop offset='1' stop-color='${accent}' stop-opacity='0.02'/></linearGradient>
+        </defs>
+        <rect width='100%' height='100%' fill='${bg}'/>
+        <rect x='20' y='20' width='${width-40}' height='${height-40}' rx='12' fill='url(#g)'/>
+        <text x='50%' y='50%' fill='${fg}' font-family='Inter, Arial' font-size='36' text-anchor='middle' dominant-baseline='middle'>${text}</text>
+      </svg>`;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
+    const defaults = {
+      logo: (function(){
+        // small SVG logo
+        const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
+          <rect width='100%' height='100%' rx='40' fill='#fff'/>
+          <g transform='translate(32,32) scale(0.8)'>
+            <rect x='40' y='40' width='360' height='220' rx='12' fill='#0ea5e9'/>
+            <path d='M60 110 h300 v80 h-300 z' fill='#fb923c' />
+            <circle cx='200' cy='60' r='24' fill='#ffd166'/>
+            <text x='30' y='340' font-family='Inter, Arial' font-size='60' fill='#0f172a'>CE</text>
+          </g>
+        </svg>`;
+        return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+      })(),
+      hero: svgDataUrl(1400,800,'Aula: agrega tu foto','%23e9eef6','%236b7280','%231d4ed8'),
+      photo2: svgDataUrl(1200,800,'Foto: aula / computadoras','%23e9eef6','%236b7280','%2306b6d4'),
+      photo3: svgDataUrl(1200,800,'Foto: profesor en pizarra','%23e9eef6','%236b7280','%23fb923c'),
+      galleryLogo: svgDataUrl(1000,600,'Logo CompuEnglish','%23ffffff','%236b7280','%231d4ed8')
+    };
+
+    // --- Helpers for localStorage ---
+    function setStored(key, value){
+      try { localStorage.setItem(key, value); } catch(e) { /* ignore */ }
+    }
+    function getStored(key){
+      try { return localStorage.getItem(key); } catch(e) { return null; }
+    }
+    function readFileAsDataURL(file){ return new Promise((res, rej) => {
+      const fr = new FileReader();
+      fr.onload = e => res(e.target.result);
+      fr.onerror = rej;
+      fr.readAsDataURL(file);
+    })}
+
+    // --- Elements ---
+    const logoImg = document.getElementById('logo-img');
+    const heroImg = document.getElementById('hero-img');
+    const photo3Img = document.getElementById('photo-3');
+    const gPhoto1 = document.getElementById('g-photo1');
+    const gPhoto2 = document.getElementById('g-photo2');
+    const gPhoto3 = document.getElementById('g-photo3');
+
+    // file inputs
+    const fileLogo = document.getElementById('file-logo');
+    const fileHero = document.getElementById('file-hero');
+    const filePhoto2 = document.getElementById('file-photo2');
+    const filePhoto3 = document.getElementById('file-photo3');
+
+    // initialize images from localStorage or defaults
+    function initImages(){
+      logoImg.src = getStored('site_logo') || defaults.logo;
+      heroImg.src = getStored('site_hero') || defaults.hero;
+      photo3Img.src = getStored('site_photo3') || defaults.photo3;
+      gPhoto1.src = getStored('site_photo2') || defaults.photo2;
+      gPhoto2.src = getStored('site_photo3') || defaults.photo3;
+      gPhoto3.src = getStored('site_logo') || defaults.galleryLogo;
+    }
+    initImages();
+
+    // When user uploads an image, update corresponding elements and store
+    fileLogo.addEventListener('change', async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      const data = await readFileAsDataURL(f);
+      logoImg.src = data;
+      gPhoto3.src = data;
+      setStored('site_logo', data);
+      alert('Logo actualizado (previsualización).');
+    });
+
+    fileHero.addEventListener('change', async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      const data = await readFileAsDataURL(f);
+      heroImg.src = data;
+      setStored('site_hero', data);
+      alert('Imagen hero actualizada (previsualización).');
+    });
+
+    filePhoto2.addEventListener('change', async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      const data = await readFileAsDataURL(f);
+      gPhoto1.src = data;
+      heroImg.src = data; // also update hero visual if desired
+      setStored('site_photo2', data);
+      alert('Foto de aula actualizada (previsualización).');
+    });
+
+    filePhoto3.addEventListener('change', async (e) => {
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      const data = await readFileAsDataURL(f);
+      photo3Img.src = data;
+      gPhoto2.src = data;
+      setStored('site_photo3', data);
+      alert('Foto de profesor actualizada (previsualización).');
+    });
+
+    // --- Lightbox for gallery ---
+    document.addEventListener('click', function(e){
+      const img = e.target.closest('.gallery .item img');
+      if(!img) return;
+      const overlay = document.createElement('div');
+      overlay.style.position='fixed';
+      overlay.style.left=0; overlay.style.top=0; overlay.style.right=0; overlay.style.bottom=0;
+      overlay.style.background='rgba(2,6,23,0.86)'; overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center';
+      overlay.style.zIndex=120;
+      const large = document.createElement('img');
+      large.src = img.src; large.alt = img.alt || '';
+      large.style.maxWidth='95%'; large.style.maxHeight='95%'; large.style.borderRadius='8px'; large.style.boxShadow='0 20px 60px rgba(2,6,23,0.6)';
+      overlay.appendChild(large);
+      overlay.addEventListener('click', ()=> overlay.remove());
+      document.body.appendChild(overlay);
+    });
+
+    // --- Reveal on scroll ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.12});
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    // --- Export/Download index.html with embedded images ---
+    const exportBtn = document.getElementById('export-btn');
+    exportBtn.addEventListener('click', () => {
+      const html = generateExportHTML();
+      downloadStringAsFile(html, 'index.html');
+      alert('Se descargó index.html con las imágenes visibles (si estaban cargadas como data URLs se incrustaron). Sube ese archivo y la carpeta images (si las usaste) a tu repo.');
+    });
+
+    function cloneDocAndEmbedImages(includeData = true){
+      // Clone documentElement and replace src with current values
+      const clone = document.documentElement.cloneNode(true);
+
+      // Map of ids to current srcs
+      const map = {
+        'logo-img': logoImg.src,
+        'hero-img': heroImg.src,
+        'photo-3': photo3Img.src,
+        'g-photo1': gPhoto1.src,
+        'g-photo2': gPhoto2.src,
+        'g-photo3': gPhoto3.src
+      };
+
+      Object.keys(map).forEach(id => {
+        const el = clone.querySelector('#' + id);
+        if(el){
+          const current = map[id];
+          if(includeData){
+            el.setAttribute('src', current);
+          } else {
+            // if current is data: keep default placeholders (skip data urls)
+            if(current && current.startsWith('data:')){
+              // leave as defaults (already in default HTML), else use current
+            } else {
+              el.setAttribute('src', current);
+            }
+          }
+        }
+      });
+
+      // Remove editor controls (file inputs & export button) from clone
+      const toRemove = clone.querySelectorAll('.editor-bar, input[type="file"], #export-btn, label[for^="file-"]');
+      toRemove.forEach(n => n.remove());
+
+      return '<!DOCTYPE html>\n' + clone.outerHTML;
+    }
+
+    function generateExportHTML(){
+      return cloneDocAndEmbedImages(true);
+    }
+
+    function downloadStringAsFile(str, filename) {
+      const blob = new Blob([str], {type: 'text/html;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=> URL.revokeObjectURL(url), 1000);
+    }
+
+    // --- Initialize small defaults if nothing in storage ---
+    (function ensureDefaults(){
+      if(!getStored('site_logo')) setStored('site_logo', defaults.logo);
+      if(!getStored('site_hero')) setStored('site_hero', defaults.hero);
+      if(!getStored('site_photo2')) setStored('site_photo2', defaults.photo2);
+      if(!getStored('site_photo3')) setStored('site_photo3', defaults.photo3);
+      // re-init to pick up defaults
+      initImages();
+    })();
+
+    // --- Optional: update WA number via hash (quick testing) ---
     (function(){
       function getHashParam(name){
         if(!location.hash) return null;
@@ -276,22 +504,6 @@
       }
     })();
 
-    // Lightbox simple para la galería
-    document.addEventListener('click', function(e){
-      const img = e.target.closest('.gallery .item img');
-      if(!img) return;
-      const overlay = document.createElement('div');
-      overlay.style.position='fixed';
-      overlay.style.left=0; overlay.style.top=0; overlay.style.right=0; overlay.style.bottom=0;
-      overlay.style.background='rgba(2,6,23,0.8)'; overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center';
-      overlay.style.zIndex=120;
-      const large = document.createElement('img');
-      large.src = img.src; large.alt = img.alt || '';
-      large.style.maxWidth='95%'; large.style.maxHeight='95%'; large.style.borderRadius='8px'; large.style.boxShadow='0 20px 60px rgba(2,6,23,0.6)';
-      overlay.appendChild(large);
-      overlay.addEventListener('click', ()=> overlay.remove());
-      document.body.appendChild(overlay);
-    });
   </script>
 </body>
 </html>
