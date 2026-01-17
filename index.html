@@ -7,167 +7,100 @@
   <meta name="description" content="CompuEnglish - Educación en inglés y computación: cursos prácticos y para todas las edades en Perú." />
 
   <style>
-    /* RESET / BASE */
-    :root {
-      --primary: #2b7cff;
-      --accent: #00b4d8;
-      --bg: #f4f6f8;
-      --text: #333;
-      --card-bg: #ffffff;
-      --card-radius: 16px;
-      --card-padding: 35px;
-      --max-width: 1100px;
+    :root{
+      --primary:#2b7cff;
+      --accent:#00b4d8;
+      --bg:#f4f6f8;
+      --text:#333;
+      --card-bg:#fff;
+      --radius:16px;
+      --max-width:1100px;
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.5;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
 
-    /* ACCESSIBLE SKIP LINK */
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
     }
-    .skip-link:focus {
-      left: 10px;
-      top: 10px;
-      width: auto;
-      height: auto;
-      background: #000;
-      color: #fff;
-      padding: 8px 12px;
-      z-index: 10000;
-      border-radius: 4px;
-      text-decoration: none;
+    .skip-link:focus{
+      left:10px; top:10px; width:auto; height:auto;
+      background:#000; color:#fff; padding:8px 12px; z-index:10000; border-radius:4px; text-decoration:none;
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      padding: 90px 20px;
-      text-align: center;
+    .hero{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff; padding:90px 20px; text-align:center;
     }
-    .hero h1 {
-      font-size: 44px;
-      margin: 0 0 15px;
-    }
-    .hero p {
-      font-size: 20px;
-      max-width: 850px;
-      margin: 0 auto;
+    .hero h1{font-size:44px;margin:0 0 15px;}
+    .hero p{font-size:20px; max-width:850px; margin:0 auto;}
+
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 20px;}
+
+    .section{max-width:var(--max-width); margin: auto; padding:60px 20px;}
+    .section h2{ text-align:center; font-size:32px; color:var(--primary); margin-bottom:20px;}
+    .section p{ text-align:center; font-size:18px; max-width:900px; margin:0 auto 10px;}
+
+    .cards{display:flex; flex-wrap:wrap; gap:25px; margin-top:30px; justify-content:center;}
+    .card{background:var(--card-bg); flex:0 1 320px; padding:28px; border-radius:var(--radius); box-shadow:0 10px 25px rgba(0,0,0,0.08); text-align:center; min-width:260px;}
+    .card h3{font-size:22px; color:var(--accent); margin:0 0 8px;}
+
+    footer{background:var(--primary); color:#fff; text-align:center; padding:20px;}
+
+    .whatsapp-float{
+      position:fixed; bottom:20px; right:20px;
+      background-color:#25D366; color:white; width:60px; height:60px; border-radius:50%;
+      text-align:center; font-size:32px; line-height:60px; box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      text-decoration:none; z-index:1000;
     }
 
-    /* SECCIONES */
-    .section {
-      max-width: var(--max-width);
-      margin: auto;
-      padding: 60px 20px;
-    }
-    .section h2 {
-      text-align: center;
-      font-size: 32px;
-      color: var(--primary);
-      margin-bottom: 25px;
-    }
-    .section p {
-      text-align: center;
-      font-size: 18px;
-      max-width: 900px;
-      margin: 0 auto;
+    /* GALLERY / PHOTO EDIT UI */
+    .gallery{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:18px; margin-top:24px; align-items:start;}
+    .photo-card{ background:var(--card-bg); border-radius:12px; padding:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.06);}
+    .photo-card img{ width:100%; height:160px; object-fit:cover; border-radius:8px; display:block; margin-bottom:10px; background:#e9eef6; }
+    .photo-actions{ display:flex; gap:8px; justify-content:center; align-items:center; }
+    .btn{ background:var(--primary); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; font-size:14px; text-decoration:none; display:inline-block; }
+    .btn.secondary{ background:#666; }
+    .btn.small{ padding:6px 8px; font-size:13px; border-radius:6px; }
+
+    .contact-box{ background:linear-gradient(180deg,#fff,#f7fbff); border-radius:12px; padding:18px; display:flex; gap:12px; align-items:center; justify-content:space-between; box-shadow:0 10px 25px rgba(0,0,0,0.04); max-width:760px; margin:16px auto 0;}
+    .contact-left{ display:flex; gap:12px; align-items:center; }
+    .contact-left .phone{ font-weight:700; color:var(--primary); font-size:18px; }
+    .contact-controls{ display:flex; gap:8px; align-items:center; }
+
+    input[type="text"]{ padding:8px 10px; border-radius:8px; border:1px solid #ddd; font-size:14px; width:220px; }
+
+    /* responsive */
+    @media (max-width:768px){
+      .hero{ padding:60px 16px; }
+      .hero h1{ font-size:32px; }
+      .section{ padding:40px 16px; }
+      .contact-box{ flex-direction:column; align-items:flex-start; gap:10px; }
+      input[type="text"]{ width:100%; }
+      .photo-card img{ height:140px; }
     }
 
-    /* TARJETAS */
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-top: 40px;
-      justify-content: center; /* centra las tarjetas en pantallas anchas */
+    @media (max-width:420px){
+      .hero{ padding:48px 12px; }
+      .hero p{ font-size:16px; }
     }
 
-    .card {
-      background: var(--card-bg);
-      flex: 0 1 320px;         /* No se estiran, permiten reducirse hasta 320px */
-      padding: var(--card-padding);
-      border-radius: var(--card-radius);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      text-align: center;
-      min-width: 260px;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      color: var(--accent);
-      margin: 0 0 10px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* WHATSAPP FLOTANTE */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 32px;
-      line-height: 60px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      text-decoration: none;
-      z-index: 1000;
-    }
-
-    /* VISUAL HELP: center main content on wider screens */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* RESPONSIVE ADJUSTMENTS */
-    @media (max-width: 1024px) {
-      .hero { padding: 70px 20px; }
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .section { padding: 40px 16px; }
-      .card { padding: 20px; flex: 1 1 100%; min-width: 0; }
-      .hero p { font-size: 18px; padding: 0 10px; }
-    }
-
-    /* small screens very small */
-    @media (max-width: 420px) {
-      .hero { padding: 48px 12px; }
-      .hero p { font-size: 16px; }
-      .card { padding: 16px; }
-    }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
@@ -175,71 +108,124 @@
   <header class="hero" role="banner">
     <div class="container">
       <h1>CompuEnglish</h1>
-      <p>
-        Educación en inglés y computación con una metodología clara,
-        práctica e inspiradora para todas las edades.
-      </p>
+      <p>Educación en inglés y computación con una metodología clara, práctica e inspiradora para todas las edades.</p>
     </div>
   </header>
 
   <main id="main-content" role="main">
     <section class="section">
       <h2>Nuestra metodología</h2>
-      <p>
-        Enseñamos combinando el idioma inglés con la tecnología,
-        fomentando el aprendizaje progresivo, práctico y aplicado
-        a la vida real.
-      </p>
+      <p>Enseñamos combinando el idioma inglés con la tecnología, fomentando el aprendizaje progresivo, práctico y aplicado a la vida real.</p>
     </section>
 
     <section class="section">
       <h2>Cómo aprendemos</h2>
       <div class="cards" aria-label="Proceso de aprendizaje">
-        <article class="card" aria-labelledby="card-aprender">
-          <h3 id="card-aprender"><span aria-hidden="true">📘</span> Aprender</h3>
+        <article class="card" aria-labelledby="aprender">
+          <h3 id="aprender"><span aria-hidden="true">📘</span> Aprender</h3>
           <p>Conceptos claros y sencillos, explicados paso a paso.</p>
         </article>
 
-        <article class="card" aria-labelledby="card-practicar">
-          <h3 id="card-practicar"><span aria-hidden="true">🧠</span> Practicar</h3>
+        <article class="card" aria-labelledby="practicar">
+          <h3 id="practicar"><span aria-hidden="true">🧠</span> Practicar</h3>
           <p>Ejercicios, actividades y refuerzo constante.</p>
         </article>
 
-        <article class="card" aria-labelledby="card-aplicar">
-          <h3 id="card-aplicar"><span aria-hidden="true">💻</span> Aplicar</h3>
+        <article class="card" aria-labelledby="aplicar">
+          <h3 id="aplicar"><span aria-hidden="true">💻</span> Aplicar</h3>
           <p>Uso real del inglés y la computación en situaciones prácticas.</p>
         </article>
       </div>
     </section>
 
-    <section class="section">
-      <h2>A quién va dirigido</h2>
+    <!-- CONTACT / WHATSAPP EDITABLE -->
+    <section class="section" aria-labelledby="contacto">
+      <h2 id="contacto">Contacto / WhatsApp</h2>
 
-      <div class="cards" aria-label="Grupos a los que va dirigido">
-        <article class="card" aria-labelledby="card-ninos">
-          <h3 id="card-ninos"><span aria-hidden="true">👧</span> Niños</h3>
-          <p>
-            Aprendizaje visual, dinámico y divertido,
-            con juegos y actividades educativas.
-          </p>
-        </article>
+      <div class="contact-box" role="region" aria-label="Contacto por WhatsApp">
+        <div class="contact-left">
+          <div>
+            <div style="font-size:14px;color:#555">Habla con nosotros por WhatsApp</div>
+            <div class="phone" id="whatsapp-display">+51 916 347 155</div>
+            <div style="font-size:13px;color:#666">Haz clic en el botón para abrir WhatsApp.</div>
+          </div>
+        </div>
 
-        <article class="card" aria-labelledby="card-jovenes">
-          <h3 id="card-jovenes"><span aria-hidden="true">🧑</span> Jóvenes</h3>
-          <p>
-            Desarrollo del inglés y la computación para estudios, trabajo,
-            tecnología y preparación para el futuro.
-          </p>
-        </article>
+        <div class="contact-controls" aria-hidden="false">
+          <a id="whatsapp-open" class="btn" href="https://wa.me/51916347155" target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp">
+            Contactar
+          </a>
 
-        <article class="card" aria-labelledby="card-adultos">
-          <h3 id="card-adultos"><span aria-hidden="true">👨</span> Adultos</h3>
-          <p>
-            Inglés y computación aplicados al trabajo,
-            la comunicación y la vida diaria.
-          </p>
-        </article>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <input id="whatsapp-input" type="text" placeholder="Ingresar número (ej: 51912345678)" aria-label="Número de WhatsApp" />
+            <button id="whatsapp-save" class="btn small secondary">Actualizar</button>
+          </div>
+        </div>
       </div>
+
+      <p style="text-align:center; margin-top:12px; color:#555; font-size:14px;">
+        Cambia el número y haz clic en "Actualizar" para probar el enlace (cambios guardados en tu navegador).
+      </p>
+    </section>
+
+    <!-- GALLERY / FOTOS EDITABLES -->
+    <section class="section" aria-labelledby="fotos">
+      <h2 id="fotos">Fotos (editar / previsualizar)</h2>
+      <p>Haz clic en "Editar foto" para reemplazar la imagen temporalmente y ver cómo quedaría. Para cambios permanentes, sube tus imágenes a la carpeta /images del repo y actualiza el atributo src.</p>
+
+      <div class="gallery" id="gallery">
+        <!-- Photo 1 -->
+        <div class="photo-card">
+          <img id="photo-1" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' width='800' height='480'>
+              <rect width='100%' height='100%' fill='%23e9eef6'/>
+              <text x='50%' y='50%' font-size='24' fill='%238888a8' dominant-baseline='middle' text-anchor='middle'>Foto 1 (reemplazar)</text>
+            </svg>" alt="Foto 1: portada">
+          <div class="photo-actions">
+            <label class="btn small" for="file-1" aria-hidden="true">Editar foto</label>
+            <button class="btn small secondary" onclick="resetPhoto(1)">Restablecer</button>
+            <input id="file-1" type="file" accept="image/*" style="display:none" onchange="handleImageChange(event,1)" />
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="photo-card">
+          <img id="photo-2" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' width='800' height='480'>
+              <rect width='100%' height='100%' fill='%23e9eef6'/>
+              <text x='50%' y='50%' font-size='24' fill='%238888a8' dominant-baseline='middle' text-anchor='middle'>Foto 2 (reemplazar)</text>
+            </svg>" alt="Foto 2: actividad">
+          <div class="photo-actions">
+            <label class="btn small" for="file-2" aria-hidden="true">Editar foto</label>
+            <button class="btn small secondary" onclick="resetPhoto(2)">Restablecer</button>
+            <input id="file-2" type="file" accept="image/*" style="display:none" onchange="handleImageChange(event,2)" />
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="photo-card">
+          <img id="photo-3" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' width='800' height='480'>
+              <rect width='100%' height='100%' fill='%23e9eef6'/>
+              <text x='50%' y='50%' font-size='24' fill='%238888a8' dominant-baseline='middle' text-anchor='middle'>Foto 3 (reemplazar)</text>
+            </svg>" alt="Foto 3: aula">
+          <div class="photo-actions">
+            <label class="btn small" for="file-3" aria-hidden="true">Editar foto</label>
+            <button class="btn small secondary" onclick="resetPhoto(3)">Restablecer</button>
+            <input id="file-3" type="file" accept="image/*" style="display:none" onchange="handleImageChange(event,3)" />
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:14px; text-align:center; color:#666; font-size:13px;">
+        Nota: la edición con este panel solo cambia la vista en tu navegador (previsualización). Para que las fotos se mantengan en producción, sube los archivos reales al repositorio/hosting y actualiza los atributos src.
+      </p>
+
+      <div style="text-align:center; margin-top:18px;">
+        <button id="generate-btn" class="btn">Generar archivo actualizado</button>
+        <button id="generate-without-images-btn" class="btn secondary" title="No incrusta las imágenes (mantiene URLs actuales)">Generar sin incrustar imágenes</button>
+      </div>
+
     </section>
   </main>
 
@@ -247,15 +233,192 @@
     <p>© 2026 CompuEnglish | Perú</p>
   </footer>
 
-  <!-- BOTÓN WHATSAPP -->
-  <a href="https://wa.me/51916347155"
-     class="whatsapp-float"
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Contactar por WhatsApp al +51 916 347 155">
+  <!-- WhatsApp flotante -->
+  <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/51916347155" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp flotante">
     💬
   </a>
+
+  <script>
+    // ---------- WhatsApp editable (almacenado en localStorage para previsualizar) ----------
+    const defaultNumber = '51916347155';
+    const storageKey = 'compu_whatsapp_number_v1';
+
+    function getStoredNumber(){
+      try { return localStorage.getItem(storageKey) || defaultNumber; }
+      catch(e){ return defaultNumber; }
+    }
+
+    function setStoredNumber(v){
+      try { localStorage.setItem(storageKey, v); } catch(e){}
+    }
+
+    function formatDisplayNumber(raw){
+      if(!raw) return '';
+      if(raw.startsWith('+')) raw = raw.slice(1);
+      if(raw.length <= 8) return '+' + raw;
+      return '+' + raw.slice(0,2) + ' ' + raw.slice(2,5) + ' ' + raw.slice(5);
+    }
+
+    function updateWhatsAppUI(number){
+      const display = document.getElementById('whatsapp-display');
+      const open = document.getElementById('whatsapp-open');
+      const floatBtn = document.getElementById('whatsapp-float');
+      const normalized = number.replace(/\D/g,'');
+      if(normalized.length === 0) return;
+      display.textContent = formatDisplayNumber(normalized);
+      const waUrl = 'https://wa.me/' + normalized;
+      open.setAttribute('href', waUrl);
+      floatBtn.setAttribute('href', waUrl);
+      setStoredNumber(normalized);
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=> {
+      const stored = getStoredNumber();
+      updateWhatsAppUI(stored);
+      const input = document.getElementById('whatsapp-input');
+      input.value = stored;
+      document.getElementById('whatsapp-save').addEventListener('click', ()=>{
+        const val = input.value.trim();
+        const digits = val.replace(/\D/g,'');
+        if(!digits){
+          alert('Ingresa un número válido, por ejemplo: 51912345678');
+          return;
+        }
+        updateWhatsAppUI(digits);
+        alert('Número actualizado para previsualización. Haz clic en "Contactar" para abrir WhatsApp.');
+      });
+    });
+
+
+    // ---------- Image preview / edición (solo en navegador) ----------
+    const defaultSvgs = {
+      1: document.getElementById('photo-1').getAttribute('src'),
+      2: document.getElementById('photo-2').getAttribute('src'),
+      3: document.getElementById('photo-3').getAttribute('src')
+    };
+
+    function handleImageChange(event, id){
+      const file = event.target.files && event.target.files[0];
+      if(!file) return;
+      if(!file.type.startsWith('image/')) { alert('Por favor selecciona una imagen.'); return; }
+
+      const reader = new FileReader();
+      reader.onload = function(e){
+        const img = document.getElementById('photo-' + id);
+        img.src = e.target.result;
+        try{
+          if(e.target.result.length < 200000){
+            localStorage.setItem('compu_photo_'+id, e.target.result);
+          } else {
+            localStorage.removeItem('compu_photo_'+id);
+          }
+        }catch(ex){}
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function resetPhoto(id){
+      const img = document.getElementById('photo-' + id);
+      img.src = defaultSvgs[id];
+      try { localStorage.removeItem('compu_photo_'+id); } catch(e){}
+      const input = document.getElementById('file-' + id);
+      if(input) input.value = '';
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      for(let i=1;i<=3;i++){
+        try{
+          const data = localStorage.getItem('compu_photo_'+i);
+          if(data) document.getElementById('photo-'+i).src = data;
+        }catch(e){}
+      }
+    });
+
+
+    // ---------- Generar archivo actualizado (descarga) ----------
+    // Opción 1: genera index.html que incluye las imágenes actualmente visibles (data URLs si se cargaron).
+    // Opción 2: genera index.html sin incrustar imágenes (mantiene los src actuales tal cual están ahora en el DOM).
+    function generateHTML(includeImages = true){
+      // Hacemos un clon del documento para limpiar elementos temporales si es necesario.
+      const docClone = document.documentElement.cloneNode(true);
+
+      // Si no queremos incluir inputs de edición y botones:
+      // eliminamos los inputs type=file y botones de edición (solo para limpieza estética).
+      const inputs = docClone.querySelectorAll('input[type="file"], input[type="text"], button#whatsapp-save, button#generate-btn, button#generate-without-images-btn, label[for^="file-"]');
+      inputs.forEach(n => n.remove());
+
+      // Si includeImages === false, queremos mantener las URLs originales que estaban en defaultSvgs.
+      if(!includeImages){
+        // Reemplazamos las imágenes que contienen data: por los src originales (defaultSvgs)
+        for(let i=1;i<=3;i++){
+          const img = docClone.querySelector('#photo-' + i);
+          if(img){
+            // si el original defaultSvgs tiene el placeholder, lo usamos; si la imagen en la vista actual tenía otra URL,
+            // la dejamos tal cual. Para simplicidad, volvemos a usar defaultSvg si actual src es data:
+            const currentSrc = document.getElementById('photo-'+i).getAttribute('src');
+            if(currentSrc && currentSrc.startsWith('data:')){
+              img.setAttribute('src', defaultSvgs[i]);
+            } else {
+              // si no es data:, colocamos la src actual (por ejemplo, si ya es images/foto1.jpg)
+              img.setAttribute('src', document.getElementById('photo-'+i).getAttribute('src'));
+            }
+          }
+        }
+      } else {
+        // includeImages true: aseguramos que las imágenes en el HTML final usen los src actuales del DOM (pueden ser data URLs).
+        for(let i=1;i<=3;i++){
+          const img = docClone.querySelector('#photo-' + i);
+          if(img){
+            img.setAttribute('src', document.getElementById('photo-'+i).getAttribute('src'));
+          }
+        }
+      }
+
+      // Actualizamos los enlaces de WhatsApp en el clone con el valor actual
+      const stored = getStoredNumber();
+      const normalized = (stored || defaultNumber).replace(/\D/g,'');
+      const waUrl = 'https://wa.me/' + normalized;
+      const openBtn = docClone.querySelector('#whatsapp-open');
+      const floatBtn = docClone.querySelector('#whatsapp-float');
+      const floatBtnAlt = docClone.querySelector('#whatsapp-float'); // same
+      if(openBtn) openBtn.setAttribute('href', waUrl);
+      if(floatBtn) floatBtn.setAttribute('href', waUrl);
+
+      // Serializamos el HTML final
+      const doctype = '<!DOCTYPE html>\n';
+      const htmlString = doctype + docClone.outerHTML;
+
+      return htmlString;
+    }
+
+    function downloadStringAsFile(str, filename) {
+      const blob = new Blob([str], {type: 'text/html;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=> URL.revokeObjectURL(url), 1000);
+    }
+
+    document.getElementById('generate-btn').addEventListener('click', ()=>{
+      // Genera index con imágenes incrustadas si se cargaron (data URLs) o con las src actuales.
+      const html = generateHTML(true);
+      // Nombre sugerido: index.html (sobrescribirás localmente al bajarlo)
+      downloadStringAsFile(html, 'index.html');
+      alert('Se ha generado un archivo index.html listo para subir a tu repositorio. Si las imágenes están incrustadas como data URLs, el archivo contendrá las fotos.');
+    });
+
+    document.getElementById('generate-without-images-btn').addEventListener('click', ()=>{
+      const html = generateHTML(false);
+      downloadStringAsFile(html, 'index.html');
+      alert('Se ha generado un archivo index.html sin incrustar las imágenes (usa las URLs actuales).');
+    });
+
+    // Nota: este método descarga un archivo index.html que puedes subir manualmente a tu repo (vía GitHub, FTP o tu hosting).
+    // No realiza commits automáticos al repositorio porque eso requiere un servidor o token seguro.
+  </script>
 </body>
 </html>
-
-
