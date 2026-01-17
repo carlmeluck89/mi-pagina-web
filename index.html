@@ -1,202 +1,260 @@
-
-          <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>CompuEnglish | Educación</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <title>CompuEnglish | Educación</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CompuEnglish - Educación en inglés y computación: cursos prácticos y para todas las edades en Perú." />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-        }
+  <style>
+    /* RESET / BASE */
+    :root {
+      --primary: #2b7cff;
+      --accent: #00b4d8;
+      --bg: #f4f6f8;
+      --text: #333;
+      --card-bg: #ffffff;
+      --card-radius: 16px;
+      --card-padding: 35px;
+      --max-width: 1100px;
+    }
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(135deg, #2b7cff, #00b4d8);
-            color: white;
-            padding: 90px 20px;
-            text-align: center;
-        }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
 
-        .hero h1 {
-            font-size: 44px;
-            margin-bottom: 15px;
-        }
+    /* ACCESSIBLE SKIP LINK */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      left: 10px;
+      top: 10px;
+      width: auto;
+      height: auto;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      z-index: 10000;
+      border-radius: 4px;
+      text-decoration: none;
+    }
 
-        .hero p {
-            font-size: 20px;
-            max-width: 850px;
-            margin: auto;
-        }
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 90px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 44px;
+      margin: 0 0 15px;
+    }
+    .hero p {
+      font-size: 20px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
 
-        /* SECCIONES */
-        .section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
-        }
+    /* SECCIONES */
+    .section {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 60px 20px;
+    }
+    .section h2 {
+      text-align: center;
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 25px;
+    }
+    .section p {
+      text-align: center;
+      font-size: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        .section h2 {
-            text-align: center;
-            font-size: 32px;
-            color: #2b7cff;
-            margin-bottom: 25px;
-        }
+    /* TARJETAS */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 40px;
+      justify-content: center; /* centra las tarjetas en pantallas anchas */
+    }
 
-        .section p {
-            text-align: center;
-            font-size: 18px;
-            max-width: 900px;
-            margin: auto;
-        }
+    .card {
+      background: var(--card-bg);
+      flex: 0 1 320px;         /* No se estiran, permiten reducirse hasta 320px */
+      padding: var(--card-padding);
+      border-radius: var(--card-radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: center;
+      min-width: 260px;
+    }
 
-        /* TARJETAS */
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 40px;
-        }
+    .card h3 {
+      font-size: 22px;
+      color: var(--accent);
+      margin: 0 0 10px;
+    }
 
-        .card {
-            background: white;
-            flex: 1;
-            min-width: 260px;
-            padding: 35px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            text-align: center;
-        }
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
 
-        .card h3 {
-            font-size: 22px;
-            color: #00b4d8;
-            margin-bottom: 10px;
-        }
+    /* WHATSAPP FLOTANTE */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      line-height: 60px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 1000;
+    }
 
-        /* FOOTER */
-        footer {
-            background: #2b7cff;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    /* VISUAL HELP: center main content on wider screens */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* WHATSAPP */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 32px;
-            line-height: 60px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            text-decoration: none;
-            z-index: 1000;
-        }
+    /* RESPONSIVE ADJUSTMENTS */
+    @media (max-width: 1024px) {
+      .hero { padding: 70px 20px; }
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .section { padding: 40px 16px; }
+      .card { padding: 20px; flex: 1 1 100%; min-width: 0; }
+      .hero p { font-size: 18px; padding: 0 10px; }
+    }
+
+    /* small screens very small */
+    @media (max-width: 420px) {
+      .hero { padding: 48px 12px; }
+      .hero p { font-size: 16px; }
+      .card { padding: 16px; }
+    }
+  </style>
 </head>
-<body>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>CompuEnglish</h1>
-    <p>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="container">
+      <h1>CompuEnglish</h1>
+      <p>
         Educación en inglés y computación con una metodología clara,
         práctica e inspiradora para todas las edades.
-    </p>
-</section>
+      </p>
+    </div>
+  </header>
 
-<!-- METODOLOGÍA -->
-<section class="section">
-    <h2>Nuestra Metodología</h2>
-    <p>
+  <main id="main-content" role="main">
+    <section class="section">
+      <h2>Nuestra metodología</h2>
+      <p>
         Enseñamos combinando el idioma inglés con la tecnología,
         fomentando el aprendizaje progresivo, práctico y aplicado
         a la vida real.
-    </p>
-</section>
+      </p>
+    </section>
 
-<!-- PROCESO -->
-<section class="section">
-    <h2>Cómo Aprendemos</h2>
+    <section class="section">
+      <h2>Cómo aprendemos</h2>
+      <div class="cards" aria-label="Proceso de aprendizaje">
+        <article class="card" aria-labelledby="card-aprender">
+          <h3 id="card-aprender"><span aria-hidden="true">📘</span> Aprender</h3>
+          <p>Conceptos claros y sencillos, explicados paso a paso.</p>
+        </article>
 
-    <div class="cards">
-        <div class="card">
-            <h3>📘 Aprender</h3>
-            <p>Conceptos claros y sencillos, explicados paso a paso.</p>
-        </div>
+        <article class="card" aria-labelledby="card-practicar">
+          <h3 id="card-practicar"><span aria-hidden="true">🧠</span> Practicar</h3>
+          <p>Ejercicios, actividades y refuerzo constante.</p>
+        </article>
 
-        <div class="card">
-            <h3>🧠 Practicar</h3>
-            <p>Ejercicios, actividades y refuerzo constante.</p>
-        </div>
+        <article class="card" aria-labelledby="card-aplicar">
+          <h3 id="card-aplicar"><span aria-hidden="true">💻</span> Aplicar</h3>
+          <p>Uso real del inglés y la computación en situaciones prácticas.</p>
+        </article>
+      </div>
+    </section>
 
-        <div class="card">
-            <h3>💻 Aplicar</h3>
-            <p>Uso real del inglés y la computación en situaciones prácticas.</p>
-        </div>
-    </div>
-</section>
+    <section class="section">
+      <h2>A quién va dirigido</h2>
 
-<!-- PUBLICO -->
-<section class="section">
-    <h2>A Quién Va Dirigido</h2>
+      <div class="cards" aria-label="Grupos a los que va dirigido">
+        <article class="card" aria-labelledby="card-ninos">
+          <h3 id="card-ninos"><span aria-hidden="true">👧</span> Niños</h3>
+          <p>
+            Aprendizaje visual, dinámico y divertido,
+            con juegos y actividades educativas.
+          </p>
+        </article>
 
-    <div class="cards">
-        <div class="card">
-            <h3>👧 Niños </h3>
-            <p>
-                Aprendizaje visual, dinámico y divertido,
-                con juegos y actividades educativas.
-            </p>
-        </div>
+        <article class="card" aria-labelledby="card-jovenes">
+          <h3 id="card-jovenes"><span aria-hidden="true">🧑</span> Jóvenes</h3>
+          <p>
+            Desarrollo del inglés y la computación para estudios, trabajo,
+            tecnología y preparación para el futuro.
+          </p>
+        </article>
 
-        <div class="card">
-            <h3>🧑 Jóvenes</h3>
-            <p>
-                Desarrollo del inglés y la computación para estudios, trabajo, 
-                tecnología y preparación para el futuro.
-            </p>
-        </div>
+        <article class="card" aria-labelledby="card-adultos">
+          <h3 id="card-adultos"><span aria-hidden="true">👨</span> Adultos</h3>
+          <p>
+            Inglés y computación aplicados al trabajo,
+            la comunicación y la vida diaria.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-        <div class="card">
-            <h3>👨 Adultos</h3>
-            <p>
-                Inglés y computación aplicados al trabajo,
-                la comunicación y la vida diaria.
-            </p>
-        </div>
-    </div>
-</section>
-
-<footer>
+  <footer role="contentinfo">
     <p>© 2026 CompuEnglish | Perú</p>
-</footer>
+  </footer>
 
-<!-- BOTÓN WHATSAPP -->
-<a href="https://wa.me/51916347155"
-   class="whatsapp-float"
-   target="_blank"
-   aria-label="WhatsApp">
-   💬
-</a>
-
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/51916347155"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp al +51 916 347 155">
+    💬
+  </a>
 </body>
 </html>
 
