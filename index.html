@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+          <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +29,7 @@
 
         .hero p {
             font-size: 20px;
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
         }
 
@@ -43,7 +44,7 @@
             text-align: center;
             font-size: 32px;
             color: #2b7cff;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .section p {
@@ -53,36 +54,28 @@
             margin: auto;
         }
 
-        /* BLOQUES */
-        .blocks {
+        /* TARJETAS */
+        .cards {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             margin-top: 40px;
         }
 
-        .block {
+        .card {
             background: white;
             flex: 1;
             min-width: 260px;
-            padding: 30px;
-            border-radius: 14px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             text-align: center;
         }
 
-        .block h3 {
+        .card h3 {
+            font-size: 22px;
             color: #00b4d8;
             margin-bottom: 10px;
-        }
-
-        /* IMAGEN */
-        .img-center {
-            display: block;
-            width: 100%;
-            max-width: 700px;
-            margin: 40px auto;
-            border-radius: 16px;
         }
 
         /* FOOTER */
@@ -106,7 +99,7 @@
             text-align: center;
             font-size: 32px;
             line-height: 60px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             text-decoration: none;
             z-index: 1000;
         }
@@ -124,40 +117,39 @@
 <section class="hero">
     <h1>CompuEnglish</h1>
     <p>
-        Enseñanza de inglés y computación con una metodología práctica,
-        moderna y adaptada para niños, adolescentes y adultos.
+        Educación en inglés y computación con una metodología clara,
+        práctica e inspiradora para todas las edades.
     </p>
 </section>
 
-<!-- METODOLOGIA -->
+<!-- METODOLOGÍA -->
 <section class="section">
     <h2>Nuestra Metodología</h2>
     <p>
-        Combinamos el aprendizaje del idioma inglés con la tecnología,
-        enfocándonos en la práctica real y el desarrollo de habilidades útiles.
+        Enseñamos combinando el idioma inglés con la tecnología,
+        fomentando el aprendizaje progresivo, práctico y aplicado
+        a la vida real.
     </p>
-
-    <img src="images/metodologia.jpg" alt="Metodología educativa" class="img-center">
 </section>
 
 <!-- PROCESO -->
 <section class="section">
     <h2>Cómo Aprendemos</h2>
 
-    <div class="blocks">
-        <div class="block">
+    <div class="cards">
+        <div class="card">
             <h3>📘 Aprender</h3>
-            <p>Conceptos claros, simples y bien explicados.</p>
+            <p>Conceptos claros y sencillos, explicados paso a paso.</p>
         </div>
 
-        <div class="block">
+        <div class="card">
             <h3>🧠 Practicar</h3>
             <p>Ejercicios, actividades y refuerzo constante.</p>
         </div>
 
-        <div class="block">
+        <div class="card">
             <h3>💻 Aplicar</h3>
-            <p>Uso del inglés y la computación en situaciones reales.</p>
+            <p>Uso real del inglés y la computación en situaciones prácticas.</p>
         </div>
     </div>
 </section>
@@ -166,8 +158,46 @@
 <section class="section">
     <h2>A Quién Va Dirigido</h2>
 
-    <div class="blocks">
-        <div class="block">
-            <h3>👧 Niños</h3>
-            <p>Aprendizaje visual, dinámico y d
+    <div class="cards">
+        <div class="card">
+            <h3>👧 Niños, jovenes y adultos</h3>
+            <p>
+                Aprendizaje visual, dinámico y divertido,
+                con juegos y actividades educativas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🧑 Jóvenes</h3>
+            <p>
+                Desarrollo del inglés y la computación para estudios, trabajo, 
+                tecnología y preparación para el futuro.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>👨 Adultos</h3>
+            <p>
+                Inglés y computación aplicados al trabajo,
+                la comunicación y la vida diaria.
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 CompuEnglish | Perú</p>
+</footer>
+
+<!-- BOTÓN WHATSAPP -->
+<a href="https://wa.me/51916347155"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="WhatsApp">
+   💬
+</a>
+
+</body>
+</html>
+
 
